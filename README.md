@@ -22,6 +22,7 @@ git checkout -b <nome da brach nova>: irá criar uma nova branch
 git switch <nome da branch>: alternar entre branchs
 git switch -c <nome da branch nova>: irá criar uma brach nova
 git merge <nome da branch>: Irá mesclar o novo com o velho 
+git push origin : <nome da branch>: Remove repositório remoto
 
 
 
