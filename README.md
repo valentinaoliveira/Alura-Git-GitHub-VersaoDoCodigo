@@ -23,8 +23,8 @@ git switch <nome da branch>: alternar entre branchs
 git switch -c <nome da branch nova>: irá criar uma brach nova
 git merge <nome da branch>: Irá mesclar o novo com o velho 
 git push origin : <nome da branch>: Remove repositório remoto
-
-
+git stash: Guarda alteração para mexe-lá depois 
+git stash pop: Ele aplica o que está na gaveta "git stash" e aplica 
 
 Site para auxilio
  Ele irá ajudar você a visualizar com o git funciona 
