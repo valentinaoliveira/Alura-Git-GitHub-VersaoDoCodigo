@@ -1,69 +1,190 @@
-Comando 
+# Comandos Git
 
-git log --oneline: vê o id/hash do commit diminuido apenas os primeiros caracteres e a mesagem do commit. Semelhando ao que pode ser visto no gitHub
-git log -p: Nele será mostrado o id/hash completo, o autor, mensagem do commit e o diferecial e que será mostrado o "diff" que seria o formato que o git mostra das alterações . Linhas que começam com "-" significa que foram removidas, ja as que estão com "+" foram adicionadas. Possível ver em todos os arquivos 
-git log --graph: mostra uma linha linha do log, sendo util pra mostrar as branchs. Ele mostra graficos tambem ao lado esquerdo. 
-git log --pretty/ git log --format: exibe o commit da forma que você quiser. Então após digitar o comando é necessario colocar "= "%H %an"", com isso você verá o hash/id do commit e o autor. 
-git log --help: Terá o manual e nele você consiguira achar outros formatos de pesquisar o que você quer em "git log --pretty", basta pesquisar "PRETTY FORMATS" que irá encontrar outros formatos especificos. Não é utlizidado  no cotidiano.
-git show <hash commit>: irá mostrar tudo do commit, como se fosse "git log -p", mas sedo com um commit em especifico
-git show --help: terá a documentação do git show.
-HEAD: ultimo commit feito 
-git show: irá mostrar os detalhes do ultimo commit
-git status: mostra em qual branch voce está logado 
-git diff: Mostra diferenca em dois estado, o que foi adicionado e o ultimo commit (HEAD)
-git diff --help: Documentação do diff
-git diff <hash commit>..<hash commit>: irá mostrar as alteração entre os commits
-git branch: mostra as ramificações existentes no trabalho 
-git brach -m <nome da branch> <nome novo>: Renomeia o nome da branch 
-git branch -d <nome da branch>:  Remove brach, tem que sair da branch para conseguir remove-la
-git branch <nome da branch>: você irá criar uma ova branch,porem tem que ser em minusculo, sem umeros, coisa simples
-git checkout <nome da branch>: Modifica a branch aonde você está.
-git checkout -b <nome da brach nova>: irá criar uma nova branch
-git checkout --.: Desfaz alterações 
-git switch <nome da branch>: alternar entre branchs
-git switch -c <nome da branch nova>: irá criar uma brach nova
-git merge <nome da branch>: Irá mesclar o novo com o velho 
-git push origin : <nome da branch>: Remove repositório remoto
-git stash: Guarda alteração para mexe-lá depois 
-git stash pop: Ele aplica o que está na gaveta "git stash" e aplica. Aplicando o ultimo adicionado, metodo pilha 
-git stash list: Ele lista tudo o que está no estoque (git stash)
-git stash clear : Limpa a lista do stash
-git stash push -m "<alguma mensagem>: Assim quando chamar o "git stash list" tera um nome mais discritivo
-git stash apply <indice do stash que dejesa trabalhar>: voce consegue mexer no codigo guardado, sem precisar passar pelo ultimo
-git stash drop: você pode utilizar ele para remover apenas um item do stash
-git restore : desfazer mudanças em arquivos da área de trabalho ou da área de staging "ctrl+z" work tree
-git restore --staged <arquivo>: Significa que esta mudando algo dentro dessa stadeg stage area
-git restore --source=<hash do commit><arquivo>:vai colocar no estaod que estava antes da alteração de codigoo
-git tag <nome da tag><nome do commit>: cria uma tag para esse commit
-git tag: ve todas as tags
-annotated tags: Uma mensagme para a tag, ela possui mesagem e autor 
-git tag -a <nome da tag> -m "": gerar comentario no tag
-git push origin <tag>: salvar no remoto a tag
-git tag -v <nome da tag>:
- vai ter para qual commit ela aponta, o tipo, tag, autor e a mensagem dela
+## Logs e Histórico de Commits
 
+### `git log --oneline`
+Exibe os commits em uma única linha, mostrando apenas os primeiros caracteres do hash e a mensagem do commit. Semelhante ao que é visto no GitHub.
 
+### `git log -p`
+Mostra o hash completo, o autor, a mensagem do commit e o diferencial das alterações feitas (diff). Linhas com `-` indicam remoções, enquanto `+` indicam adições.
 
-Site para auxilio
- Ele irá ajudar você a visualizar com o git funciona 
+### `git log --graph`
+Mostra uma representação gráfica do histórico de commits, útil para visualizar branches.
 
-git-school.gihub.io/visualizing-git
+### `git log --pretty` ou `git log --format`
+Permite personalizar a exibição dos commits. Exemplo:
+```sh
+git log --format="%H %an"
+```
+Mostra o hash e o autor de cada commit.
 
+### `git log --help`
+Exibe o manual do `git log`, onde é possível encontrar outras opções em "PRETTY FORMATS".
 
+## Visualização de Commits Específicos
 
-No git
-Quando você sobe coisa nova na branch, elpa no git irá aparecer o "compare & pull request"
-![alt text](image.png)
-Que ele irá comparar com a antiga e ele vai entender que em algum momento você irá queuer unir o que foi adicionado com a "main". ão é necessario ir ao site para conseguir fazer o "compare & pull request, é possível fazer pelo proprio terminal o comando é o seguinte: 
-git merge <nome da branch>
-Irá aparecer "Fast-forward" que significa ele não irá criar um novo commit e não vai fazer nada de diferente, entendendo que a branch raiz está no mesmo lugar que a branch nova
+### `git show <hash_commit>`
+Mostra todos os detalhes de um commit específico, semelhante ao `git log -p`, mas focado em um único commit.
 
-Release
-no git você pode criar uma release 
-![alt text](image-1.png)
+### `git show`
+Exibe detalhes do último commit.
 
-Ain lea você pode colocar alguma tag 
-e se coloca o tipo dela 
-voce pode colocar uma descrico nela e pode clicar no botao "Generate release notes"
-que ele ira gerar as mudanças feitas e ficara mais facil 
-ai para publicare so clicar no "publish"
+### `git show --help`
+Exibe a documentação do comando `git show`.
+
+### `HEAD`
+Aponta para o último commit realizado.
+
+## Status e Diferenças
+
+### `git status`
+Exibe em qual branch você está e quais arquivos foram modificados.
+
+### `git diff`
+Mostra a diferença entre o código modificado e o último commit (`HEAD`).
+
+### `git diff <hash_commit>..<hash_commit>`
+Compara dois commits específicos.
+
+### `git diff --help`
+Exibe a documentação do comando `git diff`.
+
+## Branches
+
+### `git branch`
+Lista todas as branches existentes.
+
+### `git branch <nome_da_branch>`
+Cria uma nova branch. O nome deve ser simples, sem números ou caracteres especiais.
+
+### `git branch -m <nome_atual> <novo_nome>`
+Renomeia uma branch.
+
+### `git branch -d <nome_da_branch>`
+Remove uma branch. É necessário sair dela antes de deletá-la.
+
+## Alternando entre Branches
+
+### `git checkout <nome_da_branch>`
+Muda para outra branch.
+
+### `git checkout -b <nova_branch>`
+Cria uma nova branch e já muda para ela.
+
+### `git checkout -- .`
+Desfaz alterações locais nos arquivos.
+
+### `git switch <nome_da_branch>`
+Alterna entre branches de maneira mais intuitiva.
+
+### `git switch -c <nova_branch>`
+Cria uma nova branch e já muda para ela.
+
+## Merge e Sincronização com o Repositório Remoto
+
+### `git merge <nome_da_branch>`
+Faz a fusão de uma branch com outra.
+
+### `git push origin <nome_da_branch>`
+Envia a branch para o repositório remoto.
+
+### `git push origin :<nome_da_branch>`
+Remove a branch do repositório remoto.
+
+## Stash (Guardar Alterações Temporárias)
+
+### `git stash`
+Armazena temporariamente mudanças para retomá-las depois.
+
+### `git stash pop`
+Aplica o último stash salvo e o remove da pilha.
+
+### `git stash list`
+Lista todas as alterações armazenadas no stash.
+
+### `git stash clear`
+Limpa todas as entradas do stash.
+
+### `git stash push -m "<mensagem>"`
+Adiciona um nome descritivo ao stash.
+
+### `git stash apply <índice>`
+Aplica um stash específico sem removê-lo da lista.
+
+### `git stash drop`
+Remove um stash específico da lista.
+
+## Restaurar Alterações
+
+### `git restore`
+Desfaz mudanças na área de trabalho ou no stage (equivalente a um "Ctrl+Z" para o código).
+
+### `git restore --staged <arquivo>`
+Remove um arquivo da área de stage, sem deletar suas alterações.
+
+### `git restore --source=<hash_commit> <arquivo>`
+Restaura um arquivo para o estado de um commit anterior.
+
+## Tags e Releases
+
+### `git tag <nome_da_tag> <hash_commit>`
+Cria uma tag para um commit específico.
+
+### `git tag`
+Lista todas as tags.
+
+### Annotated Tags
+São tags que possuem uma mensagem e um autor.
+
+### `git tag -a <nome_da_tag> -m "<mensagem>"`
+Cria uma tag com uma anotação.
+
+### `git push origin <tag>`
+Envia uma tag para o repositório remoto.
+
+### `git tag -v <nome_da_tag>`
+Exibe detalhes da tag, incluindo commit relacionado, autor e mensagem.
+
+## Cherry-Pick
+
+### `git cherry-pick <hash_commit>`
+Aplica um commit específico em outra branch.
+
+## Histórico de Alterações por Autor
+
+### `git blame <arquivo>`
+Mostra quem alterou cada linha do arquivo e qual foi o último commit que a modificou.
+
+## Visualizando o Git Graficamente
+
+O site abaixo ajuda a entender visualmente como o Git funciona:
+
+[Git Visualizer](https://git-school.github.io/visualizing-git)
+
+## Pull Requests e Merges
+
+Quando uma nova alteração é enviada para uma branch no GitHub, aparece a opção **"Compare & Pull Request"**.
+
+![Compare & Pull Request](image.png)
+
+Isso indica que, em algum momento, será necessário unir essa alteração à branch principal (`main`). No entanto, essa fusão pode ser feita diretamente pelo terminal com:
+
+```sh
+git merge <nome_da_branch>
+```
+
+Se a fusão for direta, o Git exibirá "Fast-forward", indicando que a branch principal já está no mesmo ponto da branch a ser mesclada.
+
+## Criando Releases no GitHub
+
+Se for necessário disponibilizar um documento extra, uma descrição específica para a release, ou mesmo um arquivo binário, pode-se criar uma release no GitHub.
+
+![alt text](image-2.png)
+
+Na tela de criação da release:
+1. Escolha uma tag.
+2. Defina o tipo da release.
+3. Adicione uma descrição.
+4. Clique em **"Generate release notes"** para gerar automaticamente um resumo das mudanças.
+5. Para publicar, clique em **"Publish"**.
+
