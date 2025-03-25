@@ -40,6 +40,7 @@ annotated tags: Uma mensagme para a tag, ela possui mesagem e autor
 git tag -a <nome da tag> -m "": gerar comentario no tag
 git push origin <tag>: salvar no remoto a tag
 git tag -v <nome da tag>: vai ter para qual commit ela aponta, o tipo, tag, autor e a mensagem dela
+git cherry-pick <hash do commit>: Pegar a mudança de um commit e mandar para outro
 
 
 
